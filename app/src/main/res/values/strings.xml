@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">VoicePosition</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="spMsgList">
+        <item>public</item>
+        <item>private</item>
+    </string-array>
+    <string-array name="spOptionList">
+        <item>Target Node</item>
+        <item>Node 1</item>
+        <item>Node 2</item>
+        <item>Node 3</item>
+        <item>Node 4</item>
+        <item>distance</item>
+    </string-array>
+</resources>
