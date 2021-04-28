@@ -181,7 +181,7 @@ public class MainActivity extends AppCompatActivity
 	{
 		mainLayout=(View)findViewById(R.id.mainLayout);
 		scrollView=(ScrollView)findViewById(R.id.scrollView);
-		llChartView=(LinearLayout)findViewById(R.id.llChartView);
+//		llChartView=(LinearLayout)findViewById(R.id.llChartView);
 		btnRecord = (Button) findViewById(R.id.btnRecord);
 		btnTrack = (Button) findViewById(R.id.btnTrack);
 		btnControlVoice = (Button) findViewById(R.id.btnControlVoice);
@@ -236,7 +236,7 @@ public class MainActivity extends AppCompatActivity
 		spOption.setOnItemSelectedListener(new OnSpOptionItemSelectedListener());
 		etContent.setOnTouchListener(onTouchListener);
 		mainLayout.setOnTouchListener(onTouchListener);
-		scrollView.setOnTouchListener(onTouchListener);
+//		scrollView.setOnTouchListener(onTouchListener);
 	}
 	private void initChartView()
 	{
@@ -264,7 +264,7 @@ public class MainActivity extends AppCompatActivity
 		//增加控件
 		((ViewGroup) content).addView(chartLayout);
 		//((ViewGroup) content).addView(mZoomControls);
-		llChartView.addView(content);
+//		llChartView.addView(content);
 
 
 	}
@@ -281,7 +281,7 @@ public class MainActivity extends AppCompatActivity
 		//利用位移運算和AND運算計算IP
 		String ip = String.format("%d.%d.%d.%d",(ipAddress & 0xff),(ipAddress >> 8 & 0xff),(ipAddress >> 16 & 0xff),(ipAddress >> 24 & 0xff));
 		localIP=ip;
-		tvInformation.setText("IP:" + localIP + " roomID:0" + " soundRank:0");
+		tvInformation.setText("IP:" + localIP + " \nroomID:0" + " \nsoundRank:0");
 	}
 
 	private void initRecordChirp()
@@ -338,7 +338,7 @@ public class MainActivity extends AppCompatActivity
 			}
 			else if(type==HandlerProtocol.selfIP_UPDATE||type.equals(HandlerProtocol.selfIP_UPDATE))
 			{
-				tvInformation.setText("IP:" + str + " roomID:0"  + " soundRank:0");
+				tvInformation.setText("IP:" + str + " \nroomID:0"  + " \nsoundRank:0");
 				localIP=str;
 			}
 			else if(type==HandlerProtocol.give_INFORMATION || type.equals(HandlerProtocol.give_INFORMATION))
@@ -350,7 +350,7 @@ public class MainActivity extends AppCompatActivity
 				etContent.append(getMachineTime());
 				soundRecord.setNewAudioRank(soundRank);
 				uploadFileToServer.setFileRank(soundRank);
-				tvInformation.setText("IP:" + localIP + " roomID:" + roomID + " soundRank:" + soundRank);
+				tvInformation.setText("IP:" + localIP + " \nroomID:" + roomID + " \nsoundRank:" + soundRank);
 				startAudioRecord();
 			}
 			else if(type==HandlerProtocol.draw_Node || type.equals(HandlerProtocol.draw_Node))
@@ -398,7 +398,8 @@ public class MainActivity extends AppCompatActivity
 					repeatEmittedSound = new RepeatEmittedSound(2000, 2000);
 					repeatEmittedSound.start();
 				}
-				else if(role==5)
+				else
+					if(role==5)
 				{
 					String[] distanceArray=str.split("\\|");
 
